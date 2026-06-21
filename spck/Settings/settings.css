@@ -1,0 +1,149 @@
+
+:root {
+    --surface: rgba(255, 255, 255, 0.9);
+    --border: rgba(148, 163, 184, 0.2);
+    --text: #0f172a;
+    --muted: #64748b;
+    --primary: #2563eb;
+    --primary-dark: #1d4ed8;
+    --danger: #ef4444;
+    --slate: #475569;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    min-height: 100vh;
+    padding: 24px;
+    font-family: Arial, sans-serif;
+    color: var(--text);
+    background:
+        radial-gradient(circle at top left, rgba(37, 99, 235, 0.18), transparent 32%),
+        radial-gradient(circle at right bottom, rgba(15, 23, 42, 0.08), transparent 34%),
+        linear-gradient(180deg, #eef2ff, #f8fafc);
+}
+
+.settings-modal {
+    min-height: calc(100vh - 48px);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.settings-content {
+    width: min(520px, 100%);
+    padding: 34px;
+    border-radius: 28px;
+    border: 1px solid var(--border);
+    background: var(--surface);
+    box-shadow: 0 28px 70px rgba(15, 23, 42, 0.14);
+    backdrop-filter: blur(14px);
+}
+
+.settings-content h2 {
+    text-align: center;
+    margin-bottom: 24px;
+    color: var(--text);
+    font-size: 30px;
+    letter-spacing: -0.03em;
+}
+
+.setting-group {
+    margin-bottom: 18px;
+}
+
+.setting-group label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: 600;
+    color: var(--muted);
+}
+
+.setting-group input {
+    width: 100%;
+    padding: 14px 16px;
+    border: 1px solid rgba(148, 163, 184, 0.26);
+    border-radius: 16px;
+    font-size: 15px;
+    background: rgba(255, 255, 255, 0.9);
+    transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.setting-group input:focus {
+    outline: none;
+    border-color: rgba(37, 99, 235, 0.65);
+    box-shadow: 0 0 0 4px rgba(37, 99, 235, 0.12);
+}
+
+.button-group {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 12px;
+    margin-top: 24px;
+}
+
+.save-settings,
+.close-settings,
+.logout-btn {
+    min-height: 48px;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    border: none;
+    border-radius: 16px;
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: transform 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
+}
+
+.save-settings {
+    background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+    color: white;
+    box-shadow: 0 14px 30px rgba(37, 99, 235, 0.22);
+}
+
+.close-settings {
+    background: linear-gradient(135deg, #f8fafc, #e2e8f0);
+    color: var(--text);
+    border: 1px solid rgba(148, 163, 184, 0.22);
+}
+
+.logout-btn {
+    background: linear-gradient(135deg, var(--danger), #dc2626);
+    color: white;
+    box-shadow: 0 14px 30px rgba(239, 68, 68, 0.2);
+}
+
+.save-settings:hover,
+.close-settings:hover,
+.logout-btn:hover {
+    transform: translateY(-2px);
+}
+
+.save-settings:active,
+.close-settings:active,
+.logout-btn:active {
+    transform: translateY(0);
+}
+
+@media (max-width: 720px) {
+    .settings-content {
+        padding: 24px;
+        border-radius: 24px;
+    }
+
+    .button-group {
+        grid-template-columns: 1fr;
+    }
+
+    .settings-content h2 {
+        font-size: 26px;
+    }
+}
+

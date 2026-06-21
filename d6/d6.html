@@ -1,0 +1,83 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Firebase</title>
+    <script type="module">
+      import { v4 as uuidv4 } from "https://cdn.jsdelivr.net/npm/uuid@8.3.2/dist/esm-browser/index.js";
+      window.uuidv4 = uuidv4;
+    </script>
+
+    <style>
+      .user_informations {
+        display: flex;
+        gap: 20px;
+        flex-wrap: wrap;
+      } 
+      .user_card {
+        width: 300px;
+        min-height: 300px;
+        border: 2px solid red;
+        padding: 10px;
+      }
+
+      .user_image {
+        width: 100%;
+      }
+
+      .formEdit {
+        display: none;
+        flex-direction: column;
+        padding: 20px;
+        gap: 10px;
+        margin-top: 20px;
+        width: 300px;
+        border: 1px solid black;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Thao tác với firebase</h1>
+    <div class="product_creat_form">
+      <h2>Image URL</h2>
+      <input
+        type="text"
+        placeholder="Enter image URL"
+        id="input_image"
+        required
+      />
+      <h2>Name</h2>
+      <input type="text" placeholder="Enter name" id="input_name" />
+      <h2>Description</h2>
+      <textarea
+        name=""
+        placeholder="Enter description"
+        id="input_description"
+      ></textarea>
+      <h2>Price</h2>
+      <input type="text" placeholder="Enter price" id="input_price" />
+      <hr />
+      <button id="addBtn">Add</button>
+    </div>
+
+    <button id="getAllBtn">Get all products</button>
+    <div class="user_informations">
+    </div>
+
+    Lorem ipsum dolor sit amet consectetur adipisicing elit. Quibusdam eaque voluptatibus maiores quo debitis culpa, quidem reiciendis iusto modi id sint, ipsa animi ullam voluptas dignissimos a suscipit pariatur deserunt.
+
+    <button id="deleteBtn">Delete</button>
+    <button id="updateBtn">Update</button>
+
+    <div class="formEdit">
+      <h3>Edit Product</h3>
+      <input type="text" placeholder="Enter new name" id="input_name_edit" />
+      <input type="text" placeholder="Enter new description" id="input_description_edit" />
+      <input type="text" placeholder="Enter new price" id="input_price_edit" />
+      <input type="text" placeholder="Enter new image URL" id="input_image_edit" />
+      <button id="saveBtn">Save</button>
+    </div>
+    <script type="module" src="./d6.js"></script>
+  </body>
+</html>

@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Work Manager</title>
+    <link rel="stylesheet" href="menu.css">
+</head>
+
+<body>
+
+    <div class="container">
+
+        <div class="hero-bar">
+
+            <div class="profile-chip">
+                <img id="profileAvatar" alt="Profile picture">
+
+                <div>
+                    <p class="welcome-label">Welcome</p>
+                    <h1 id="welcomeUser">User</h1>
+                </div>
+            </div>
+
+    
+<a href="../works/work.html" class="view-all-btn">
+    📋 Click To View All Works
+</a>
+            <a href="../Settings/settings.html" id="settingsBtn">
+                ⚙ Cài đặt
+            </a>
+
+        </div>
+
+        <div class="form-box">
+
+            <input type="text" id="input_work" placeholder="Input work..." required>
+
+            <textarea id="input_description" placeholder="Input description..."></textarea>
+
+            <input type="url" id="input_url" placeholder="Input image...">
+
+            <input type="date" id="input_date" required>
+
+            <div class="action-buttons">
+
+                <button id="addBtn">
+                    Add
+                </button>
+
+                <button id="deleteBtn">
+                    Delete All Works
+                </button>
+            
+
+            </div>
+
+        </div>
+
+        <div class="user_informations" id="workList">
+            Không có công việc
+        </div>
+
+    </div>
+
+    <script src="js.js" type="module"></script>
+
+</body>
+</html>
