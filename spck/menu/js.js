@@ -25,23 +25,33 @@ let deleteBtn = document.getElementById("deleteBtn");
 
 let input_work = document.getElementById("input_work");
 let input_description = document.getElementById("input_description");
-let input_url = document.getElementById("input_url");
+let input_type = document.getElementById("input_type");
 let input_date = document.getElementById("input_date");
 
-const email  = localStorage.getItem("email");
-const username  = localStorage.getItem("username");
-const userID  = localStorage.getItem("userID");
+const email = localStorage.getItem("email");
+const username = localStorage.getItem("username");
+const userID = localStorage.getItem("userID");
 console.log(userID)
-const checkCurrentLogin  = email && username && userID; //Check xem 3 cai nay co ton tai ko
-if (!checkCurrentLogin){
-       window.location.href = "../Login/login.html"
+const checkCurrentLogin = email && username && userID; //Check xem 3 cai nay co ton tai ko
+if (!checkCurrentLogin) {
+  window.location.href = "../Login/login.html"
 
 }
 const welcomeUser =
   document.getElementById("welcomeUser");
-
 const profileAvatar =
   document.getElementById("profileAvatar");
+
+const savedAvatar =
+  localStorage.getItem("profilePicture");
+
+if (savedAvatar) {
+  profileAvatar.src = savedAvatar;
+} else {
+  profileAvatar.src =
+    "https://ui-avatars.com/api/?name=" +
+    encodeURIComponent(username);
+}
 welcomeUser.textContent =
   "Welcome, " + username;
 
@@ -65,7 +75,7 @@ function loadWorks() {
         snapshot.forEach(function (item) {
 
           let data = item.val();
-        // Hien cong viec ra ngoai html
+          // Hien cong viec ra ngoai html
           workList.innerHTML += ` 
         <div class="work_card">
 
@@ -84,10 +94,9 @@ function loadWorks() {
 
           <div class="card_footer">
 
-            <a href="${data.url}"
-            target="_blank">
-              Image
-            </a>
+          <span class="work-type">
+    ${data.type}
+</span>
 
             <span>
               ${data.date}
@@ -99,12 +108,11 @@ function loadWorks() {
               onclick="deleteWork('${data.id}')">
               Delete
             </button>
-            <button
-            class="update-btn"
-            onclick="editWork('$data.id")">
-            Edit
-            </button>
-          <input type="checkbox" class="checkbox">
+           <button
+    class="update-btn"
+    onclick="editWork('${data.id}')">
+    Edit
+</button>
 
         </div>
         `;
@@ -157,6 +165,13 @@ window.deleteWork = function (workId) {
   }
 
 };
+window.editWork = function (workId) {
+
+  localStorage.setItem("editWorkId", workId);
+
+  window.location.href = "../edit/edit.html";
+
+};
 
 
 
@@ -165,7 +180,7 @@ addBtn.addEventListener("click", function () {
   if (
     input_work.value.trim() == "" ||
     input_description.value.trim() == "" ||
-    input_url.value.trim() == "" ||
+    input_type.value.trim() == "" ||
     input_date.value.trim() == ""
   ) {
 
@@ -180,10 +195,10 @@ addBtn.addEventListener("click", function () {
     id: work_id,
     work: input_work.value,
     description: input_description.value,
-    url: input_url.value,
-    date: input_date.value,
+    type: input_type.value, date: input_date.value,
     username: username,
     userId: userID,
+    status:todo,
   };
 
   set(
@@ -202,7 +217,7 @@ addBtn.addEventListener("click", function () {
 
       input_work.value = "";
       input_description.value = "";
-      input_url.value = "";
+      input_type.value = ""; 
       input_date.value = "";
 
       loadWorks();

@@ -24,10 +24,10 @@ saveButton.addEventListener("click", function () {
   const passwordValue = passwordInput.value.trim();
 
   if (usernameValue) {
-    localStorage.setItem("name", usernameValue);
-  }
+    localStorage.setItem("username", usernameValue);
+}
 
-  if (passwordValue) {
+  if (passwordValue) {  
     localStorage.setItem("password", passwordValue);
   }
 

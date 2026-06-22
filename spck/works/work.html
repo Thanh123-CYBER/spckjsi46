@@ -3,46 +3,77 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Work Board</title>
+
+    <link rel="stylesheet" href="work.css">
+    <script src="work.js" type="module"></script>
 </head>
-<link rel="stylesheet" href="work.css">
-<script src="work.js" type="module"></script>
 <body>
+
     <div class="board-header">
-    <h1>Work Board</h1>
 
-    <a href="../menu/index.html" class="back-btn">
-        ← Back To Menu
-    </a>
-</div>
-<div class="kanban-board">
+        <h1>📋 Work Board</h1>
 
-    <div class="column">
-        <h3>TO DO (0)</h3>
+        <a href="../menu/index.html" class="back-btn">
+            ← Back To Menu
+        </a>
 
-        <div class="empty-state">
-            📋
-            <h4>No Works Found</h4>
-            <p>You haven't added any works yet.</p>
-        </div>
     </div>
 
-    <div class="column">
-        <h3>IN PROGRESS (0)</h3>
+    <div class="kanban-board">
 
-        <div class="empty-state">
-            No works
+        <!-- TO DO -->
+        <div class="column">
+
+            <h3>TO DO</h3>
+
+            <div id="todoList">
+
+                <div class="empty-column">
+                    📋
+                    <h4>No Works Found</h4>
+                    <p>Add a work from the menu page to get started.</p>
+                </div>
+
+            </div>
+
         </div>
+
+        <!-- IN PROGRESS -->
+        <div class="column">
+
+            <h3>IN PROGRESS</h3>
+
+            <div id="progressList">
+
+                <div class="empty-column">
+                    
+                    <h4>No Works In Progress</h4>
+                    <p>Move a task here when you start working on it.</p>
+                </div>
+
+            </div>
+
+        </div>
+
+        <!-- DONE -->
+        <div class="column">
+
+            <h3>DONE</h3>
+
+            <div id="doneList">
+
+                <div class="empty-column">
+                    
+                    <h4>No Completed Works</h4>
+                    <p>Finished tasks will appear here.</p>
+                </div>
+
+            </div>
+
+        </div>
+
     </div>
 
-    <div class="column">
-        <h3>DONE (0)</h3>
-
-        <div class="empty-state">
-            No works
-        </div>
-    </div>
-
-</div>
 </body>
 </html>
